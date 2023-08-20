@@ -1,0 +1,2 @@
+productTitle=,productDescription=,productImage=,price=,discountpercentage=,rating=,stock=
+productTitle,productDescription,price,discountpercentage,rating,stock
