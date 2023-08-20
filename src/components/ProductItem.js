@@ -1,22 +1,21 @@
 import React, { Component } from "react";
-
 export class ProductItem extends Component {
   render() {
     let { productImage, productTitle, productDescription, rating , price, discountPercentage } = this.props;
     return (
       <div>
         <div
-          className="card my-3 "
-          style={{ width: "90%", margin: "auto", border: "black solid 3px" }}
+          className="card my-3 mx-3 "
+          style={{ margin: "auto", border: "black solid 3px" , backgroundColor:"#060b10", color: "white"}}
         >
           <img
             src={productImage}
-            className="card-img-top img bg-dark"
+            className="card-img-top img"
             alt={productImage}
             height="350px"
-            style={{ objectFit: "contain", width: "100%", maxHeight: "350px" }}
+            style={{ objectFit: "contain", width: "100%", maxHeight: "350px" ,backgroundColor:"#060b10",border: 'solid black 2px'}}
           />
-          <div className="card-body">
+          <div className="card-body" >
             <h5 className="card-title">{productTitle}</h5>
             <p className="card-text">{productDescription}</p>
             <a
@@ -30,7 +29,7 @@ export class ProductItem extends Component {
               Buy Now
             </a>
             <span
-              className="badge text-bg-success "
+              className="badge text-bg-success"
               style={{
                 position: "absolute",
                 left: "88%",

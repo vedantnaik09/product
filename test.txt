@@ -1,2 +1,18 @@
 productTitle=,productDescription=,productImage=,price=,discountpercentage=,rating=,stock=
 productTitle,productDescription,price,discountpercentage,rating,stock
+
+<Route path="/" element={<Products msg="All"/> }/>               
+<Route path="/smartphones" element={<Products msg="Smartphones"/> }/>               
+<Route path="/laptops" element={<Products msg="Laptops"/> }/>               
+<Route path="/fragrances" element={<Products msg="Fragrances"/> }/>               
+<Route path="/skincare" element={<Products msg="Skincare"/> }/>               
+<Route path="/groceries" element={<Products msg="Groceries"/> }/>
+<Route path="/homedec" element={<Products msg="Homedec"/> }/>
+
+all
+smartphones
+laptops
+fragrances
+skincare
+groceries
+homedec

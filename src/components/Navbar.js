@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-
+// import navback from '../resource/navback2.png'
+import shoperz from '../resource/shoperz.png'
+// @ts-ignore
+import { Link } from "react-router-dom";
 export class Navbar extends Component {
     
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg  navbar-dark" style={{backgroundColor:"#000210"}}>
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
-              Shoperz
-            </a>
+            <img src={shoperz} alt={shoperz} style={{width: '5.5rem', marginRight:"1rem"}}/>
             <button
               className="navbar-toggler"
               type="button"
@@ -25,18 +26,47 @@ export class Navbar extends Component {
             <div
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
+              style={{fontSize:"1.4rem"}}
+              
             >
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/" >
-                    Home
-                  </a>
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <li className="nav-item ">
+                   <Link className="nav-link text-white" aria-current="page" to="/" >
+                    All
+                  </Link>
+                </li>
+                <li className="nav-item ">
+                   <Link className="nav-link text-white" aria-current="page" to="/laptops" >
+                    Laptops
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/">
-                    Link
-                  </a>
+                  <Link className="nav-link text-white" to="/smartphones">
+                    Smartphones
+                  </Link>
                 </li>
+                <li className="nav-item">                  
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link text-white" to="/fragrances">
+                    Fragrances
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link text-white" to="/skincare">
+                    Skincare
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link text-white" to="/groceries">
+                    Groceries
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link text-white" to="/homedec">
+                    Home-Decoration
+                  </Link>
+                </li> 
               </ul>
               <form className="d-flex" role="search">
                 <input
