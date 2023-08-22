@@ -11,7 +11,6 @@ function App() {
  const [navClicked, setNavClicked] = useState(false);
  const [productId, setProductId] = useState("");
  const [element, setElement] = useState({});
-//  const [elements, setElements] = useState([{}]);
 
   return (
    
@@ -29,26 +28,8 @@ function App() {
           <Route path="/groceries" element={<Products key={"Groceries"+search+navClicked} category="groceries" search={navClicked?'':search} navClicked={navClicked} setProductId={setProductId} setElement={setElement}/> }/>
           <Route path="/homedec" element={<Products key={"Homedec"+search+navClicked} category="home-decoration" search={navClicked?'':search} navClicked={navClicked} setProductId={setProductId} setElement={setElement}/> }/>
 
-          <Route path={"/product_"+productId} element={<Product element={element}/>}/> 
-
-          {/* <Route path={"/product_1"} key={1} element={<Product element={elements[1]}/>}/>
-          {
-            elements.map((element)=>{
-              return(<Route path={"/product_"+element.id} key={element.id} element={<Product element={element}/>}/> )
-            })            
-          }  */}
-       
-       
-            
-                                    
+          <Route path={"/product_"+productId} element={<Product element={element}/>}/>                            
       </Routes>
-      {/* <h1 className="text-white">Hey {elements[0].id}</h1> */}
-
-          {/* {()=>{
-            elements.map((element)=>{
-              return(<h1 className="text-white">{element.title}</h1>)
-            })            
-            }}  */}
     </BrowserRouter>
       
       

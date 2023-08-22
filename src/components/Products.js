@@ -83,8 +83,6 @@ export class Products extends Component {
   return this.state.page
   }
 
-  // this.state.products.map
-  // product.category === this.props.category
   render() {
     return (
       <div>  
