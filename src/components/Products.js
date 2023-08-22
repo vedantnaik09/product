@@ -52,7 +52,7 @@ export class Products extends Component {
             ).length,
             loading: false
       });
-    }
+    }    
     console.log(this.state.products);
     console.log(this.props.category)
     console.log("break")
@@ -100,14 +100,17 @@ export class Products extends Component {
             .map((element) => {
               return (
                 <div className="col md-4 col-4" key={element.id}>
-                  <ProductItem
+                  <ProductItem     
+                  setProductId={this.props.setProductId}  
+                  setElement={this.props.setElement}          
+                    element={element}
                     productImage={element.thumbnail}
                     productTitle={element.title}
                     productDescription={element.description}
                     price={element.price}
                     discountPercentage={element.discountPercentage}
                     rating={element.rating}
-                    stock={element.stock}                   
+                    stock={element.stock}                                    
                   />
                   {/* {console.log(element)} */}
                 </div>
