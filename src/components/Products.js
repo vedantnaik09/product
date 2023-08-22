@@ -5,11 +5,13 @@ import PropTypes from 'prop-types';
 export class Products extends Component {
   static defaultProps=
   {
-   category: "Hello"
+   category: "Hello",
+   search: ""
   }
   static propTypes=
   {
     category:PropTypes.string,
+    search: PropTypes.string,
   }
 
   constructor() {
@@ -18,7 +20,9 @@ export class Products extends Component {
       products: [],
       id: 0,
       page: 1,
-      cat: false
+      cat: false,
+      arrLen: 0,
+      loading: true
     };
     
   }
@@ -29,22 +33,30 @@ export class Products extends Component {
     console.log(parsedData);
     if(this.props.category!=="all")
     {
-    this.setState({
+      this.setState({
       products: parsedData.products.filter(product=> product.category === this.props.category),
-      id: parsedData.id,
-      visible:false
-    });
+      id: parsedData.id, 
+      arrLen: parsedData.products.filter(product=> product.category === this.props.category).filter((product)=>
+      product.title.toLowerCase().includes(this.props.search.toLowerCase()).length      
+    ),
+    loading: false
+    })
     }
     else
     {
       this.setState({
         products: parsedData.products ,
-        id: parsedData.id,
-        visible: true      
+        id: parsedData.id,   
+        arrLen: parsedData.products.filter((product)=>
+              product.title.toLowerCase().includes(this.props.search.toLowerCase())
+            ).length,
+            loading: false
       });
     }
     console.log(this.state.products);
     console.log(this.props.category)
+    console.log("break")
+     console.log(this.state.arrLen)
   }
 
   handlePreviousClick = async () => {
@@ -66,17 +78,24 @@ export class Products extends Component {
     )
     window.scrollTo(0, 0);
   };
+  check=()=>{
+  if(this.state.page===5){console.log("Hey")}
+  return this.state.page
+  }
+
   // this.state.products.map
   // product.category === this.props.category
   render() {
     return (
-      <div>
-       <div className="row gx-0">           
+      <div>  
+       <div className="row gx-0">     
           {this.state.products
             .filter(
               (product) =>             
                 this.state.products.indexOf(product)+1>= this.state.page &&
                 this.state.products.indexOf(product)+1<= this.state.page * 10               
+            ).filter((product)=>
+              product.title.toLowerCase().includes(this.props.search.toLowerCase())
             )
             .map((element) => {
               return (
@@ -95,37 +114,40 @@ export class Products extends Component {
               );
             })}
         </div>
+        {this.state.arrLen && this.state.loading===false?'':<h1 className="text-white text-center">No results found!</h1>}
         {/* <div className="row justify-content-between">  
           <div className="col-4"><button type="button" className="btn btn-primary">Primary </button></div>
           <div className="col-4"><button type="button" className="btn btn-primary">Primary </button></div>
         </div> */}
+        
         <div className="container d-flex justify-content-between text-center">
           <div className="col-4">
-            <button
+          {this.state.arrLen>=10 && <button
               type="button"
               disabled={this.state.page === 1 || this.state.cat===true}
               className="btn btn-primary"
               onClick={this.handlePreviousClick}
             >
               Previous{" "}
-            </button>
+            </button>}
           </div>
+          
           <div className="btn-toolbar" role="toolbar">
           <div className="btn-group me-2" role="group">
-            {this.state.visible && <button type="button" className="btn btn-primary" onClick={()=>this.changePage(1)}>1</button>}
-            {this.state.visible && <button type="button" className="btn btn-primary" onClick={()=>this.changePage(2)}>2</button>}
-            {this.state.visible && <button type="button" className="btn btn-primary" onClick={()=>this.changePage(3)}>3</button>}
+            {this.state.arrLen>=10 && <button type="button" className="btn btn-primary" onClick={()=>this.changePage(1)}>1</button>}
+            {this.state.arrLen>=10 && <button type="button" className="btn btn-primary" onClick={()=>this.changePage(2)}>2</button>}
+            {this.state.arrLen>=10 && <button type="button" className="btn btn-primary" onClick={()=>this.changePage(3)}>3</button>}
       </div>
       </div>
           <div className="col-4">
-            <button
+          {this.state.arrLen>=10 && <button
               type="button"
               disabled={this.state.page === 3 || this.state.cat===true}
               className="btn btn-primary"
               onClick={this.handleNextClick}
             >
               Next{" "}
-            </button>
+            </button>}
           </div>
         </div>
       </div>
