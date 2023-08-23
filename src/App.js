@@ -28,8 +28,9 @@ function App() {
           <Route path="/groceries" element={<Products key={"Groceries"+search+navClicked} category="groceries" search={navClicked?'':search} navClicked={navClicked} setProductId={setProductId} setElement={setElement}/> }/>
           <Route path="/homedec" element={<Products key={"Homedec"+search+navClicked} category="home-decoration" search={navClicked?'':search} navClicked={navClicked} setProductId={setProductId} setElement={setElement}/> }/>
 
-          <Route path={"/product_"+productId} element={<Product element={element}/>}/>                            
+          <Route path={"/product_"+productId} key={productId} element={<Product element={element}/>}/>                            
       </Routes>
+      
     </BrowserRouter>
       
       

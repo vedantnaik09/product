@@ -21,7 +21,7 @@ function ProductItem(props)
             <Link
             
               onClick={async()=>{await props.setProductId(props.element.id); await props.setElement(props.element) }}
-              to= {"product_"+props.element.id}
+              to= {"../product_"+props.element.id}
               className="btn btn-primary"
               style={{
                 position: "relative",
