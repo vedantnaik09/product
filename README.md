@@ -1,3 +1,8 @@
+This website is designed for the user to browse different products accross different categories.
+It is made with the help of React,HTML,CSS and Bootstrap
+
+-------------------------------------------------------------------------------------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
