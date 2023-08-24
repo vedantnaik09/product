@@ -4,3 +4,11 @@
 .navbar .navbar-nav > li > a, .navbar-default .navbar-nav > li {
     color: #ffffff;
 }
+.prev:hover{
+    height: 120px;
+    width: 120px;
+}
+.prev{
+    height: 50px;
+    width: 50px;
+}

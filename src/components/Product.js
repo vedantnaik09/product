@@ -3,45 +3,38 @@ import tick from "../resource/tick.png";
 
 function Product(props) {
   const [displayImg, setDisplayImg] = useState(props.element.thumbnail);
-  const [imgSize, setImgSize] = useState("big");
   const [clickIndex, setClickIndex] = useState(0);
-  const [imgState, setImgState] = useState(0);
-  function updateWidth(e,newWidth){
-    if(imgSize==="big"){
-    e.target.style.height= "120px"
-    e.target.style.width= "120px"
-    setImgSize("small")
-    }
-    else{
-      e.target.style.height= "50px"
-      e.target.style.width= "50px"
-      setImgSize("big")
-    }
+  const [imgState, setImgState] = useState(0); 
+  function imgSize() {
+    var img=new Image();
+    img.src= props.element.thumbnail
+    // let myImg = props.element.thumbnail
+    let height = img.naturalHeight
+    return height+150
   }
-  return (
-    
+  return (       
     <div>
       <div className="row text-white gx-0">
         <div
           className="col-md-4 mx-5"
-          style={{ marginTop: "5%", height: "auto" }}
+          style={{ marginTop: "5%", height: imgSize() }}
         >
           <div className="well" style={{ textAlign:"center"}}>
             <img
               src={imgState?displayImg:props.element.thumbnail}
               className="rounded float-left"
               alt=""
-              style={{height:"500px", width:"-webkit-fill-available" }}
+              style={{ }}
             />
           </div>
           <div className="my-3" style={{textAlign:"center",margin:"auto",height:"50px"}}>
           {props.element.images?.map((item) => {
             return(               
-              <img className="mx-2" onClick={()=>{setDisplayImg(item); setClickIndex(props.element.images.indexOf(item));setImgState(1)}} onMouseEnter={updateWidth} onMouseLeave={updateWidth} src={item} alt={item} style={{ width: "50px",height:"50px", border:clickIndex===props.element.images.indexOf(item)?"solid red 2px":"solid white 2px" }} />          
+              <img className="mx-2 prev" onClick={()=>{setDisplayImg(item); setClickIndex(props.element.images.indexOf(item));setImgState(1)}} src={item} alt={item} style={{ border:clickIndex===props.element.images.indexOf(item)?"solid red 2px":"solid white 2px" }} />          
             )
           })}
           </div>
-        </div>
+        </div> 
 
         <div className="col-md-6 mx-3" style={{ marginTop: "5%" }}>
           <div className="well" style={{ height: "auto" }}>
