@@ -22,6 +22,7 @@ function Navbar(props) {
       <nav
         className="navbar navbar-expand-lg  navbar-dark"
         style={{ backgroundColor: "#000210" }}
+        
       >
         <div className="container-fluid">
           <img
@@ -37,6 +38,7 @@ function Navbar(props) {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            
           >
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -48,7 +50,7 @@ function Navbar(props) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
               <li className="nav-item ">
                 <Link
-                  className="nav-link text-white"
+                  className="nav-link"
                   aria-current="page"
                   to="/" 
                   onClick={async()=>{await setSearchMsg('');props.setNavClicked(true);await sendMessage();}}                
@@ -58,7 +60,7 @@ function Navbar(props) {
               </li>
               <li className="nav-item ">
                 <Link
-                  className="nav-link text-white"
+                  className="nav-link "
                   aria-current="page"
                   to="/laptops"
                   onClick={async()=>{await setSearchMsg('');props.setNavClicked(true);await sendMessage();}} 
@@ -68,7 +70,7 @@ function Navbar(props) {
               </li>
               <li className="nav-item">
                 <Link
-                  className="nav-link text-white"
+                  className="nav-link "
                   to="/smartphones"
                   onClick={async()=>{await setSearchMsg('');props.setNavClicked(true);await sendMessage();}} 
                 >
@@ -78,7 +80,7 @@ function Navbar(props) {
               <li className="nav-item"></li>
               <li className="nav-item">
                 <Link
-                  className="nav-link text-white"
+                  className="nav-link "
                   to="/fragrances"
                   onClick={async()=>{await setSearchMsg('');props.setNavClicked(true);await sendMessage();}} 
                 >
@@ -86,19 +88,19 @@ function Navbar(props) {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-white" to="/skincare" onClick={async()=>{await setSearchMsg('');props.setNavClicked(true);await sendMessage();}} 
+                <Link className="nav-link " to="/skincare" onClick={async()=>{await setSearchMsg('');props.setNavClicked(true);await sendMessage();}} 
                 >
                   Skincare
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-white" to="/groceries" onClick={async()=>{await setSearchMsg('');props.setNavClicked(true);await sendMessage();}} 
+                <Link className="nav-link " to="/groceries" onClick={async()=>{await setSearchMsg('');props.setNavClicked(true);await sendMessage();}} 
                 >
                   Groceries
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-white" to="/homedec" onClick={async()=>{await setSearchMsg('');props.setNavClicked(true);await sendMessage();}} 
+                <Link className="nav-link " to="/homedec" onClick={async()=>{await setSearchMsg('');props.setNavClicked(true);await sendMessage();}} 
                 >
                   Home-Decoration
                 </Link>
