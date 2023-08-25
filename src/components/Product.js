@@ -10,10 +10,10 @@ function Product(props) {
     img.src= props.element.thumbnail
     // let myImg = props.element.thumbnail
     let height = img.naturalHeight
-    return height+150
+    return height+500
   }
   return (       
-    <div>
+    <div style={{height: imgSize()+100}}>
       <div className="row text-white gx-0">
         <div
           className="col-md-4 mx-5"
