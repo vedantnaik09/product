@@ -90,8 +90,8 @@ export class Products extends Component {
           {this.state.products
             .filter(
               (product) =>             
-                this.state.products.indexOf(product)+1>= this.state.page &&
-                this.state.products.indexOf(product)+1<= this.state.page * 10               
+                this.state.products.indexOf(product)>= (this.state.page-1)*10 &&
+                this.state.products.indexOf(product)+1<= (this.state.page-1)*10+ 10      
             ).filter((product)=>
               product.title.toLowerCase().includes(this.props.search.toLowerCase())
             )
@@ -115,7 +115,7 @@ export class Products extends Component {
               );
             })}
         </div>
-        {this.state.arrLen && this.state.loading===true ?'':<h1 className="text-white text-center">No results found!</h1>}
+        {this.state.arrLen && this.state.loading===false ?'':<h1 className="text-white text-center">No results found!</h1>}
         {/* <div className="row justify-content-between">  
           <div className="col-4"><button type="button" className="btn btn-primary">Primary </button></div>
           <div className="col-4"><button type="button" className="btn btn-primary">Primary </button></div>
