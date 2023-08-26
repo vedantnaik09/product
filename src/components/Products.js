@@ -22,7 +22,7 @@ export class Products extends Component {
       page: 1,
       cat: false,
       arrLen: 1,
-      loading: true
+      loading: false
     };
     
   }
@@ -31,6 +31,7 @@ export class Products extends Component {
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
+  
     if(this.props.category!=="all")
     {
       this.setState({
@@ -115,6 +116,7 @@ export class Products extends Component {
               );
             })}
         </div>
+        {/* <h1 className="text-white">arrlen:{this.state.arrLen} loading:{this.state.loading.toString()}</h1> */}
         {this.state.arrLen && this.state.loading===false ?'':<h1 className="text-white text-center">No results found!</h1>}
         {/* <div className="row justify-content-between">  
           <div className="col-4"><button type="button" className="btn btn-primary">Primary </button></div>
